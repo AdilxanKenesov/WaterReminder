@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "1037037928557-8cqgru9o35s8mk07tfv4lp8hvh7fgee9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.visionsystems.waterreminder",
+            "certificate_hash": "3f9477fe2cd4f409a3aed1e27311612cfad1ed76"
+          }
+        },
+        {
           "client_id": "1037037928557-alqa50c078aps780brp62m5t87patubo.apps.googleusercontent.com",
           "client_type": 3
         }

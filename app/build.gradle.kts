@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -8,6 +10,16 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.firebase.crashlytics)
 }
+
+val keystoreProperties = Properties().apply {
+    val file = rootProject.file("keystore.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
+}
+
+fun signingValue(key: String, env: String): String? =
+    keystoreProperties.getProperty(key) ?: System.getenv(env)
+
+val releaseStoreFile = signingValue("storeFile", "HYDRO_KEYSTORE_PATH")
 
 android {
     namespace = "com.visionsystems.waterreminder"
@@ -25,12 +37,34 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            if (releaseStoreFile != null) {
+                storeFile = file(releaseStoreFile)
+                storePassword = signingValue("storePassword", "HYDRO_KEYSTORE_PASSWORD")
+                keyAlias = signingValue("keyAlias", "HYDRO_KEY_ALIAS")
+                keyPassword = signingValue("keyPassword", "HYDRO_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
             optimization {
-                enable = false
+                enable = true
+                keepRules {
+                    files.add(file("proguard-rules.pro"))
+                }
+            }
+            signingConfig = when {
+                project.hasProperty("signWithDebugKey") -> signingConfigs.getByName("debug")
+                releaseStoreFile != null -> signingConfigs.getByName("release")
+                else -> null
             }
         }
+    }
+    androidResources {
+        localeFilters += setOf("en", "uz")
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
