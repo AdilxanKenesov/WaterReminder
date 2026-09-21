@@ -1,0 +1,230 @@
+<resources>
+    <string name="channel_reminders_name">Suv eslatmalari</string>
+    <string name="channel_reminders_description">Kun davomida suv ichishni eslatadi</string>
+    <string name="channel_progress_name">Kunlik natija</string>
+    <string name="channel_progress_description">Maqsad bajarilishi va seriya ogohlantirishlari</string>
+    <string name="channel_achievements_name">Nishonlar</string>
+    <string name="channel_achievements_description">Siz qoʻlga kiritgan yangi nishonlar</string>
+
+    <string name="notification_reminder_title">Bir stakan suv ichish vaqti</string>
+    <string name="notification_reminder_text">Bugun %2$d ml dan %1$d ml</string>
+    <string name="notification_action_add">+%1$d ml</string>
+    <string name="notification_action_later">Keyinroq</string>
+    <string name="notification_goal_title">Kunlik maqsad bajarildi!</string>
+    <string name="notification_goal_text">Bugun %1$d ml suv ichdingiz. Barakalla!</string>
+    <string name="notification_streak_title">%1$d kunlik seriyani saqlang</string>
+    <string name="notification_streak_text">Bugunga atigi %1$d ml qoldi.</string>
+    <string name="notification_achievement_title">Yangi nishon</string>
+
+    <string name="achievement_first_glass">Birinchi stakan</string>
+    <string name="achievement_first_goal">Birinchi maqsad</string>
+    <string name="achievement_streak_3">3 kunlik seriya</string>
+    <string name="achievement_streak_7">7 kunlik seriya</string>
+    <string name="achievement_streak_30">30 kunlik seriya</string>
+    <string name="achievement_total_10_liters">10 litr</string>
+    <string name="achievement_total_100_liters">100 litr</string>
+
+    <string name="unit_kg">kg</string>
+    <string name="unit_years">yosh</string>
+
+    <string name="action_back">Orqaga</string>
+    <string name="action_next">Keyingi</string>
+    <string name="action_skip">Oʻtkazish</string>
+    <string name="action_get_started">Boshlash</string>
+    <string name="action_continue">Davom etish</string>
+    <string name="action_save">Saqlash</string>
+    <string name="action_cancel">Bekor qilish</string>
+    <string name="action_undo">Qaytarish</string>
+    <string name="action_delete">Oʻchirish</string>
+    <string name="action_remove">Olib tashlash</string>
+    <string name="action_edit">Tahrirlash</string>
+    <string name="action_change">Oʻzgartirish</string>
+    <string name="action_done">Tayyor</string>
+    <string name="action_turn_on">Yoqish</string>
+    <string name="or">yoki</string>
+
+    <string name="gender_male">Erkak</string>
+    <string name="gender_female">Ayol</string>
+    <string name="gender_other">Boshqa</string>
+    <string name="activity_low">Past</string>
+    <string name="activity_moderate">Oʻrta</string>
+    <string name="activity_high">Yuqori</string>
+
+    <string name="greeting_morning">Xayrli tong</string>
+    <string name="greeting_afternoon">Xayrli kun</string>
+    <string name="greeting_evening">Xayrli kech</string>
+
+    <string name="interval_hours">%1$d soat</string>
+    <string name="interval_minutes">%1$d daqiqa</string>
+    <string name="interval_hours_minutes">%1$d soat %2$d daqiqa</string>
+    <string name="every_interval">Har %1$sda</string>
+
+    <string name="tab_home">Asosiy</string>
+    <string name="tab_insights">Statistika</string>
+    <string name="tab_reminders">Eslatmalar</string>
+    <string name="tab_profile">Profil</string>
+    <string name="add_water">Suv qoʻshish</string>
+
+    <string name="error_email_invalid">Toʻgʻri email kiriting</string>
+    <string name="error_password_empty">Parolni kiriting</string>
+    <string name="error_email_for_reset">Avval emailni kiriting</string>
+    <string name="error_name_empty">Ismingizni kiriting</string>
+    <string name="error_invalid_credentials">Email yoki parol notoʻgʻri</string>
+    <string name="error_user_not_found">Bu email bilan hisob topilmadi</string>
+    <string name="error_email_in_use">Bu email allaqachon roʻyxatdan oʻtgan</string>
+    <string name="error_weak_password">Parol juda oddiy</string>
+    <string name="error_too_many_requests">Urinishlar koʻp. Keyinroq qayta urining</string>
+    <string name="error_network">Internet aloqasi yoʻq</string>
+    <string name="error_recent_login">Davom etish uchun qayta kiring</string>
+    <string name="error_not_signed_in">Siz hisobdan chiqqansiz</string>
+    <string name="error_unknown">Nimadir xato ketdi</string>
+    <string name="error_google_not_configured">Google orqali kirish hozircha mavjud emas</string>
+    <string name="error_google_no_account">Qurilmada Google hisobi yoʻq</string>
+    <string name="error_google_failed">Google orqali kirib boʻlmadi</string>
+
+    <string name="onboarding_title_1">Suvni bir bosishda yozing</string>
+    <string name="onboarding_body_1">Kuningiz qanday toʻlayotganini koʻring.</string>
+    <string name="onboarding_title_2">Faqat uygʻoq paytingizda eslatma</string>
+    <string name="onboarding_body_2">Tunda bezovta qilmaydi.</string>
+    <string name="onboarding_title_3">Seriyani saqlang</string>
+    <string name="onboarding_body_3">Haftangizni kuzating, nishonlar oling.</string>
+
+    <string name="signin_title">Xush kelibsiz</string>
+    <string name="field_email">Email</string>
+    <string name="field_password">Parol</string>
+    <string name="action_forgot_password">Parolni unutdingizmi?</string>
+    <string name="action_sign_in">Kirish</string>
+    <string name="action_continue_google">Google orqali kirish</string>
+    <string name="google_connecting">Ulanmoqda…</string>
+    <string name="signin_no_account">Hisobingiz yoʻqmi?</string>
+    <string name="action_sign_up">Roʻyxatdan oʻtish</string>
+    <string name="reset_link_sent">Tiklash havolasi %1$s manziliga yuborildi</string>
+
+    <string name="signup_title">Yangi hisob</string>
+    <string name="field_name">Ism</string>
+    <string name="name_placeholder">Ismingiz</string>
+    <plurals name="password_hint">
+        <item quantity="one">Kamida %d ta belgi</item>
+        <item quantity="other">Kamida %d ta belgi</item>
+    </plurals>
+    <string name="action_create_account">Hisob yaratish</string>
+
+    <string name="verify_title">Pochtangizni tekshiring</string>
+    <string name="verify_body">%1$s manziliga yuborilgan havolani bosing.</string>
+    <string name="verify_email_fallback">emailingiz</string>
+    <string name="action_open_email">Pochtani ochish</string>
+    <string name="action_verified">Tasdiqladim</string>
+    <string name="action_resend">Qayta yuborish</string>
+    <string name="sending">Yuborilmoqda…</string>
+    <string name="link_sent_again">Havola qayta yuborildi</string>
+    <string name="not_verified_yet">Hali tasdiqlanmagan</string>
+    <string name="no_email_app">Pochta ilovasi topilmadi</string>
+
+    <string name="about_title">Siz haqingizda</string>
+    <string name="about_subtitle">Kunlik maqsadni hisoblash uchun kerak.</string>
+    <string name="field_gender">Jins</string>
+    <string name="field_age">Yosh</string>
+    <string name="field_weight">Vazn</string>
+    <string name="field_activity">Faollik</string>
+
+    <string name="schedule_title">Kun tartibi</string>
+    <string name="schedule_subtitle">Eslatmalar faqat uygʻoq paytingizda keladi.</string>
+    <string name="field_wake">Uygʻonish</string>
+    <string name="field_bedtime">Uyqu</string>
+    <plurals name="reminders_per_day">
+        <item quantity="one">Kuniga %d marta</item>
+        <item quantity="other">Kuniga %d marta</item>
+    </plurals>
+
+    <string name="goal_title">Kunlik maqsad</string>
+    <string name="per_day">kuniga %1$s</string>
+    <plurals name="glasses_of">
+        <item quantity="one">Taxminan %1$d stakan (%2$s)</item>
+        <item quantity="other">Taxminan %1$d stakan (%2$s)</item>
+    </plurals>
+    <string name="action_start">Boshlash</string>
+    <string name="action_adjust">Oʻzgartirish</string>
+
+    <string name="today">Bugun</string>
+    <string name="of_goal">%1$s dan</string>
+    <string name="next_reminder_at">Keyingisi %1$s da</string>
+    <string name="goal_done">Maqsad bajarildi</string>
+    <string name="reminders_off">Eslatmalar oʻchiq</string>
+    <string name="quick_add">Tez qoʻshish</string>
+    <plurals name="streak_days">
+        <item quantity="one">%d kunlik seriya</item>
+        <item quantity="other">%d kunlik seriya</item>
+    </plurals>
+    <string name="streak_start">Seriyani boshlang</string>
+    <string name="streak_safe">Bugun seriya saqlandi</string>
+    <string name="left_today">Bugun yana %1$s</string>
+    <string name="log_title">Bugungi yozuvlar</string>
+    <string name="log_empty">Hali hech narsa yozilmadi</string>
+    <string name="water_added">%1$s qoʻshildi</string>
+    <string name="new_badge">Yangi nishon: %1$s</string>
+
+    <string name="insights_title">Statistika</string>
+    <string name="period_week">Hafta</string>
+    <string name="period_month">Oy</string>
+    <string name="daily_average">Kunlik oʻrtacha</string>
+    <string name="goal_line">Maqsad %1$s</string>
+    <string name="stat_goal_days">Maqsad kunlari</string>
+    <string name="stat_best_streak">Eng uzun seriya</string>
+    <string name="stat_glasses_per_day">Stakan/kun</string>
+    <string name="badges">Nishonlar</string>
+    <string name="chart_description">Ichilgan suv grafigi</string>
+
+    <string name="reminders_title">Eslatmalar</string>
+    <string name="next_reminder">Keyingi eslatma</string>
+    <string name="state_paused">Toʻxtatilgan</string>
+    <string name="state_done_today">Bugunga yetarli</string>
+    <string name="frequency">Oraliq</string>
+    <string name="frequency_auto">Avto</string>
+    <string name="notifications">Bildirishnomalar</string>
+    <string name="notify_goal">Maqsad bajarilganda</string>
+    <string name="notify_streak">Seriya ogohlantirishi</string>
+    <string name="notify_badges">Nishonlar</string>
+    <string name="notify_sound">Ovoz</string>
+    <string name="notifications_off">Bildirishnomalar oʻchiq</string>
+
+    <string name="profile_title">Profil</string>
+    <string name="profile_summary">%1$d kg · %2$s</string>
+    <plurals name="age_years">
+        <item quantity="one">%d yosh</item>
+        <item quantity="other">%d yosh</item>
+    </plurals>
+    <string name="profile_default_name">Foydalanuvchi</string>
+    <string name="goal_recommended">Siz uchun tavsiya etilgan</string>
+    <string name="goal_custom">Oʻzingiz belgilagan</string>
+    <string name="settings_units">Oʻlchov birligi</string>
+    <string name="settings_language">Til</string>
+    <string name="action_sign_out">Chiqish</string>
+    <string name="action_delete_account">Hisobni oʻchirish</string>
+    <string name="delete_title">Hisob oʻchirilsinmi?</string>
+    <string name="delete_body">Barcha maʼlumotlaringiz butunlay oʻchiriladi.</string>
+
+    <string name="recommended_value">Tavsiya: %1$s</string>
+    <string name="glass_size">Stakan hajmi</string>
+    <string name="increase">Oshirish</string>
+    <string name="decrease">Kamaytirish</string>
+
+    <string name="add_amount">%1$s qoʻshish</string>
+
+    <string name="goal_reached_title">Maqsad bajarildi!</string>
+    <string name="goal_reached_body">Bugun %1$s</string>
+
+    <string name="edit_profile_title">Profilni tahrirlash</string>
+    <string name="action_add_photo">Rasm qoʻshish</string>
+    <string name="action_change_photo">Rasmni almashtirish</string>
+    <string name="photo_failed">Bu rasmni ishlatib boʻlmadi</string>
+    <string name="profile_photo">Profil rasmi</string>
+
+    <string name="show_password">Parolni koʻrsatish</string>
+    <string name="hide_password">Parolni yashirish</string>
+    <string name="glass_description">Stakan %1$d%% toʻla</string>
+
+    <string name="widget_description">Bugungi suv va tez qoʻshish</string>
+    <string name="widget_open_app">Hydroni ochish</string>
+    <string name="widget_other">Boshqa</string>
+    <string name="delete_entry_title">Yozuv oʻchirilsinmi?</string>
+</resources>

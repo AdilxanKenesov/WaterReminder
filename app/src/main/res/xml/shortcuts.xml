@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_add_water"
+        android:shortcutId="add_water"
+        android:shortcutLongLabel="@string/add_water"
+        android:shortcutShortLabel="@string/add_water"
+        tools:targetApi="25">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.visionsystems.waterreminder.QuickAddActivity"
+            android:targetPackage="com.visionsystems.waterreminder" />
+    </shortcut>
+</shortcuts>

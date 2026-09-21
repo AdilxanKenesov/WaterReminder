@@ -1,0 +1,239 @@
+<resources>
+    <string name="app_name" translatable="false">Hydro</string>
+
+    <string name="channel_reminders_name">Water reminders</string>
+    <string name="channel_reminders_description">Reminders to drink water during the day</string>
+    <string name="channel_progress_name">Daily progress</string>
+    <string name="channel_progress_description">Goal reached and streak alerts</string>
+    <string name="channel_achievements_name">Badges</string>
+    <string name="channel_achievements_description">New badges you unlock</string>
+    <string name="channel_group_name" translatable="false">Hydro</string>
+
+    <string name="notification_reminder_title">Time for a glass of water</string>
+    <string name="notification_reminder_text">%1$d of %2$d ml today</string>
+    <string name="notification_action_add">+%1$d ml</string>
+    <string name="notification_action_later">Later</string>
+    <string name="notification_goal_title">Daily goal reached!</string>
+    <string name="notification_goal_text">You drank %1$d ml today. Great job!</string>
+    <string name="notification_streak_title">Keep your %1$d-day streak</string>
+    <string name="notification_streak_text">Only %1$d ml left for today.</string>
+    <string name="notification_achievement_title">New badge unlocked</string>
+
+    <string name="achievement_first_glass">First glass</string>
+    <string name="achievement_first_goal">First goal</string>
+    <string name="achievement_streak_3">3-day streak</string>
+    <string name="achievement_streak_7">7-day streak</string>
+    <string name="achievement_streak_30">30-day streak</string>
+    <string name="achievement_total_10_liters">10 liters</string>
+    <string name="achievement_total_100_liters">100 liters</string>
+
+    <string name="unit_kg">kg</string>
+    <string name="unit_years">years</string>
+    <string name="language_english" translatable="false">English</string>
+    <string name="language_uzbek" translatable="false">O‘zbekcha</string>
+    <string name="email_placeholder" translatable="false">you@example.com</string>
+    <string name="name_with_greeting" translatable="false">%1$s, %2$s</string>
+    <string name="range_value" translatable="false">%1$d–%2$d</string>
+    <string name="fraction_value" translatable="false">%1$d/%2$d</string>
+
+    <string name="action_back">Back</string>
+    <string name="action_next">Next</string>
+    <string name="action_skip">Skip</string>
+    <string name="action_get_started">Get started</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_change">Change</string>
+    <string name="action_done">Done</string>
+    <string name="action_turn_on">Turn on</string>
+    <string name="or">or</string>
+
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+    <string name="activity_low">Low</string>
+    <string name="activity_moderate">Moderate</string>
+    <string name="activity_high">High</string>
+
+    <string name="greeting_morning">Good morning</string>
+    <string name="greeting_afternoon">Good afternoon</string>
+    <string name="greeting_evening">Good evening</string>
+
+    <string name="interval_hours">%1$d h</string>
+    <string name="interval_minutes">%1$d min</string>
+    <string name="interval_hours_minutes">%1$d h %2$d min</string>
+    <string name="every_interval">Every %1$s</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_insights">Stats</string>
+    <string name="tab_reminders">Reminders</string>
+    <string name="tab_profile">Profile</string>
+    <string name="add_water">Add water</string>
+
+    <string name="error_email_invalid">Enter a valid email</string>
+    <string name="error_password_empty">Enter your password</string>
+    <string name="error_email_for_reset">Enter your email first</string>
+    <string name="error_name_empty">Enter your name</string>
+    <string name="error_invalid_credentials">Wrong email or password</string>
+    <string name="error_user_not_found">No account with this email</string>
+    <string name="error_email_in_use">This email is already registered</string>
+    <string name="error_weak_password">Password is too weak</string>
+    <string name="error_too_many_requests">Too many attempts. Try again later</string>
+    <string name="error_network">No internet connection</string>
+    <string name="error_recent_login">Sign in again to continue</string>
+    <string name="error_not_signed_in">You are signed out</string>
+    <string name="error_unknown">Something went wrong</string>
+    <string name="error_google_not_configured">Google sign-in is not available yet</string>
+    <string name="error_google_no_account">No Google account on this device</string>
+    <string name="error_google_failed">Google sign-in failed</string>
+
+    <string name="onboarding_title_1">Log water in one tap</string>
+    <string name="onboarding_body_1">Watch your day fill up.</string>
+    <string name="onboarding_title_2">Reminders while you are awake</string>
+    <string name="onboarding_body_2">Never at night.</string>
+    <string name="onboarding_title_3">Keep your streak</string>
+    <string name="onboarding_body_3">See your week and earn badges.</string>
+
+    <string name="signin_title">Welcome back</string>
+    <string name="field_email">Email</string>
+    <string name="field_password">Password</string>
+    <string name="action_forgot_password">Forgot password?</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_continue_google">Continue with Google</string>
+    <string name="google_connecting">Connecting…</string>
+    <string name="signin_no_account">No account?</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="reset_link_sent">Reset link sent to %1$s</string>
+
+    <string name="signup_title">New account</string>
+    <string name="field_name">Name</string>
+    <string name="name_placeholder">Your name</string>
+    <plurals name="password_hint">
+        <item quantity="one">At least %d character</item>
+        <item quantity="other">At least %d characters</item>
+    </plurals>
+    <string name="action_create_account">Create account</string>
+
+    <string name="verify_title">Check your inbox</string>
+    <string name="verify_body">Tap the link we sent to %1$s.</string>
+    <string name="verify_email_fallback">your email</string>
+    <string name="action_open_email">Open email app</string>
+    <string name="action_verified">I’ve verified</string>
+    <string name="action_resend">Resend link</string>
+    <string name="sending">Sending…</string>
+    <string name="link_sent_again">Link sent again</string>
+    <string name="not_verified_yet">Not verified yet</string>
+    <string name="no_email_app">No email app found</string>
+
+    <string name="about_title">About you</string>
+    <string name="about_subtitle">Used to calculate your daily goal.</string>
+    <string name="field_gender">Gender</string>
+    <string name="field_age">Age</string>
+    <string name="field_weight">Weight</string>
+    <string name="field_activity">Activity</string>
+
+    <string name="schedule_title">Daily rhythm</string>
+    <string name="schedule_subtitle">Reminders only while you are awake.</string>
+    <string name="field_wake">Wake up</string>
+    <string name="field_bedtime">Bedtime</string>
+    <plurals name="reminders_per_day">
+        <item quantity="one">%d reminder a day</item>
+        <item quantity="other">%d reminders a day</item>
+    </plurals>
+
+    <string name="goal_title">Daily goal</string>
+    <string name="per_day">%1$s per day</string>
+    <plurals name="glasses_of">
+        <item quantity="one">About %1$d glass of %2$s</item>
+        <item quantity="other">About %1$d glasses of %2$s</item>
+    </plurals>
+    <string name="action_start">Start</string>
+    <string name="action_adjust">Adjust</string>
+
+    <string name="today">Today</string>
+    <string name="of_goal">of %1$s</string>
+    <string name="next_reminder_at">Next at %1$s</string>
+    <string name="goal_done">Goal done</string>
+    <string name="reminders_off">Reminders off</string>
+    <string name="quick_add">Quick add</string>
+    <plurals name="streak_days">
+        <item quantity="one">%d-day streak</item>
+        <item quantity="other">%d-day streak</item>
+    </plurals>
+    <string name="streak_start">Start a streak</string>
+    <string name="streak_safe">Streak safe today</string>
+    <string name="left_today">%1$s left today</string>
+    <string name="log_title">Today’s log</string>
+    <string name="log_empty">Nothing logged yet</string>
+    <string name="water_added">%1$s added</string>
+    <string name="new_badge">New badge: %1$s</string>
+
+    <string name="insights_title">Stats</string>
+    <string name="period_week">Week</string>
+    <string name="period_month">Month</string>
+    <string name="daily_average">Daily average</string>
+    <string name="goal_line">Goal %1$s</string>
+    <string name="stat_goal_days">Goal days</string>
+    <string name="stat_best_streak">Best streak</string>
+    <string name="stat_glasses_per_day">Glasses/day</string>
+    <string name="badges">Badges</string>
+    <string name="chart_description">Water intake chart</string>
+
+    <string name="reminders_title">Reminders</string>
+    <string name="next_reminder">Next reminder</string>
+    <string name="state_paused">Paused</string>
+    <string name="state_done_today">Done for today</string>
+    <string name="frequency">Frequency</string>
+    <string name="frequency_auto">Auto</string>
+    <string name="notifications">Notifications</string>
+    <string name="notify_goal">Goal reached</string>
+    <string name="notify_streak">Streak alerts</string>
+    <string name="notify_badges">Badges</string>
+    <string name="notify_sound">Sound</string>
+    <string name="notifications_off">Notifications are off</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="profile_summary">%1$d kg · %2$s</string>
+    <plurals name="age_years">
+        <item quantity="one">%d year</item>
+        <item quantity="other">%d years</item>
+    </plurals>
+    <string name="profile_default_name">Hydro user</string>
+    <string name="goal_recommended">Recommended for you</string>
+    <string name="goal_custom">Set by you</string>
+    <string name="settings_units">Units</string>
+    <string name="settings_language">Language</string>
+    <string name="action_sign_out">Sign out</string>
+    <string name="action_delete_account">Delete account</string>
+    <string name="delete_title">Delete account?</string>
+    <string name="delete_body">All your data will be removed for good.</string>
+
+    <string name="recommended_value">Recommended: %1$s</string>
+    <string name="glass_size">Glass size</string>
+    <string name="increase">Increase</string>
+    <string name="decrease">Decrease</string>
+
+    <string name="add_amount">Add %1$s</string>
+
+    <string name="goal_reached_title">Goal reached!</string>
+    <string name="goal_reached_body">%1$s today</string>
+
+    <string name="edit_profile_title">Edit profile</string>
+    <string name="action_add_photo">Add photo</string>
+    <string name="action_change_photo">Change photo</string>
+    <string name="photo_failed">Couldn’t use this photo</string>
+    <string name="profile_photo">Profile photo</string>
+
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="glass_description">Glass %1$d%% full</string>
+
+    <string name="widget_description">Today’s water and quick add</string>
+    <string name="widget_open_app">Open Hydro</string>
+    <string name="widget_other">Other</string>
+    <string name="delete_entry_title">Delete this entry?</string>
+</resources>
