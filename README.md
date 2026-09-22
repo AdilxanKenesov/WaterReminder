@@ -204,7 +204,7 @@ Authentication, Crashlytics and Analytics use Firebase. To build your own copy:
 ### Build and run
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AdilxanKenesov/WaterReminder.git
 cd WaterReminder
 
 ./gradlew installDebug      # build and install on a connected device

@@ -33,12 +33,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -388,10 +391,12 @@ private fun SwipeableLogRow(
             scope.launch { dismissState.snapTo(SwipeToDismissBoxValue.Settled) }
         }
     }
+    var rowWidth by remember { mutableIntStateOf(0) }
     SwipeToDismissBox(
         state = dismissState,
-        modifier = modifier,
+        modifier = modifier.onSizeChanged { rowWidth = it.width },
         enableDismissFromStartToEnd = false,
+        enableDismissFromEndToStart = rowWidth > 0,
         onDismiss = onDismiss,
         backgroundContent = {
             Box(
