@@ -1,0 +1,5 @@
+1. Open the app and tap "Skip" on the welcome screens.
+2. On "Welcome back", sign in with the email and password above (not "Continue with Google").
+The account is already verified and set up, so Home, Stats, Reminders and Profile are all available.
+Optional: add the Hydro home screen widget to test quick add.
+Please do not delete this account (Profile > Delete account); we use it for every review.
