@@ -65,4 +65,4 @@ We may update this policy. We will post the new version on this page with a new 
 
 ## Contact
 
-VISION SYSTEMS CORP — **[CONTACT EMAIL]**
+VISION SYSTEMS CORP — **adilxankenesov11@gmail.com**

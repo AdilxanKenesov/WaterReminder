@@ -16,7 +16,7 @@ This immediately and permanently deletes:
 
 If you no longer have the app installed, send a request from the email address linked to your account:
 
-- **To:** [CONTACT EMAIL]
+- **To:** adilxankenesov11@gmail.com
 - **Subject:** Delete my Hydro account
 
 We will delete your account within **30 days** and confirm by email.
