@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.visionsystems.waterreminder.R
 import com.visionsystems.waterreminder.domain.usecase.signup.SignUpUseCase
 import com.visionsystems.waterreminder.presenter.ui.util.MIN_PASSWORD_LENGTH
+import com.visionsystems.waterreminder.presenter.ui.util.UiText
 import com.visionsystems.waterreminder.presenter.ui.util.isValidEmail
 import com.visionsystems.waterreminder.presenter.ui.util.toUiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,6 +18,12 @@ class SignUpViewModel @Inject constructor(
 ) : ViewModel(), SignUpContract.SignUpViewModel {
 
     override val container = orbitContainer<SignUpContract.SignUpUiState, SignUpContract.SideEffect>(SignUpContract.SignUpUiState())
+
+    init {
+        intent {
+            signUpUseCase.observeOnline().collect { online -> reduce { state.copy(isOffline = !online) } }
+        }
+    }
 
     override fun onEventDispatcher(event: SignUpContract.SignUpEvent) {
         when (event) {
@@ -36,6 +43,10 @@ class SignUpViewModel @Inject constructor(
 
             SignUpContract.SignUpEvent.GoogleClicked -> intent {
                 if (state.isBusy) return@intent
+                if (state.isOffline) {
+                    postSideEffect(SignUpContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+                    return@intent
+                }
                 reduce { state.copy(isGoogleLoading = true) }
                 postSideEffect(SignUpContract.SideEffect.LaunchGoogleSignIn)
             }
@@ -58,6 +69,10 @@ class SignUpViewModel @Inject constructor(
 
     private fun createAccount() = intent {
         if (state.isBusy) return@intent
+        if (state.isOffline) {
+            postSideEffect(SignUpContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+            return@intent
+        }
         val nameError = if (state.fullName.isBlank()) R.string.error_name_empty else null
         val emailError = if (state.email.isValidEmail()) null else R.string.error_email_invalid
         val passwordError = state.password.length < MIN_PASSWORD_LENGTH

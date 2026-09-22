@@ -2,13 +2,18 @@ package com.visionsystems.waterreminder.domain.usecase.verifyemail
 
 import com.visionsystems.waterreminder.domain.module.AppStart
 import com.visionsystems.waterreminder.domain.repository.AuthRepository
+import com.visionsystems.waterreminder.domain.repository.NetworkRepository
 import com.visionsystems.waterreminder.domain.usecase.common.StartResolver
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class VerifyEmailUseCaseImpl @Inject constructor(
+    private val networkRepository: NetworkRepository,
     private val authRepository: AuthRepository,
     private val startResolver: StartResolver
 ) : VerifyEmailUseCase {
+
+    override fun observeOnline(): Flow<Boolean> = networkRepository.isOnline
 
     override fun currentEmail(): String = authRepository.currentUser.value?.email.orEmpty()
 

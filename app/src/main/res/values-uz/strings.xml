@@ -78,7 +78,6 @@
     <string name="error_recent_login">Davom etish uchun qayta kiring</string>
     <string name="error_not_signed_in">Siz hisobdan chiqqansiz</string>
     <string name="error_unknown">Nimadir xato ketdi</string>
-    <string name="error_google_not_configured">Google orqali kirish hozircha mavjud emas</string>
     <string name="error_google_no_account">Qurilmada Google hisobi yoʻq</string>
     <string name="error_google_failed">Google orqali kirib boʻlmadi</string>
 
@@ -227,4 +226,5 @@
     <string name="widget_open_app">Hydroni ochish</string>
     <string name="widget_other">Boshqa</string>
     <string name="delete_entry_title">Yozuv oʻchirilsinmi?</string>
+    <string name="offline_message">Internet yoʻq. Davom etish uchun internetga ulaning.</string>
 </resources>

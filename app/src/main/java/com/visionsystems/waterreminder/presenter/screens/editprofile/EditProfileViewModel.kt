@@ -64,10 +64,13 @@ class EditProfileViewModel @Inject constructor(
 
             is EditProfileContract.EditProfileEvent.PhotoPicked -> intent {
                 reduce { state.copy(isPhotoSaving = true) }
-                editProfileUseCase.setPhoto(event.uri)
-                    .onSuccess { photo -> reduce { state.copy(photo = photo ?: state.photo, hasCustomPhoto = photo != null) } }
-                    .onFailure { postSideEffect(EditProfileContract.SideEffect.ShowMessage(UiText.Res(R.string.photo_failed))) }
-                reduce { state.copy(isPhotoSaving = false) }
+                try {
+                    editProfileUseCase.setPhoto(event.uri)
+                        .onSuccess { photo -> reduce { state.copy(photo = photo ?: state.photo, hasCustomPhoto = photo != null) } }
+                        .onFailure { postSideEffect(EditProfileContract.SideEffect.ShowMessage(UiText.Res(R.string.photo_failed))) }
+                } finally {
+                    reduce { state.copy(isPhotoSaving = false) }
+                }
             }
 
             EditProfileContract.EditProfileEvent.RemovePhotoClicked -> intent {

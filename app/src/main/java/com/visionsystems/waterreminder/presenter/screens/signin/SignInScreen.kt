@@ -41,6 +41,7 @@ import com.visionsystems.waterreminder.presenter.ui.components.HydroPrimaryButto
 import com.visionsystems.waterreminder.presenter.ui.components.HydroSecondaryButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroTextButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroTextField
+import com.visionsystems.waterreminder.presenter.ui.components.OfflineBanner
 import com.visionsystems.waterreminder.presenter.ui.components.OrDivider
 import com.visionsystems.waterreminder.presenter.ui.components.ScreenTitle
 import com.visionsystems.waterreminder.presenter.ui.theme.HydroBackground
@@ -105,6 +106,7 @@ private fun SignInContent(
                 Icon(painter = painterResource(R.drawable.ic_drop), contentDescription = null, tint = Color.White, modifier = Modifier.size(28.dp))
             }
             ScreenTitle(title = stringResource(R.string.signin_title))
+            OfflineBanner(visible = uiState.isOffline)
             Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
                 HydroTextField(
                     label = stringResource(R.string.field_email),
@@ -132,13 +134,13 @@ private fun SignInContent(
                     text = stringResource(R.string.action_forgot_password),
                     onClick = { onEventDispatcher(SignInContract.SignInEvent.ForgotPasswordClicked) },
                     modifier = Modifier.align(Alignment.End),
-                    enabled = !uiState.isBusy
+                    enabled = !uiState.isBusy && !uiState.isOffline
                 )
             }
             HydroPrimaryButton(
                 text = stringResource(R.string.action_sign_in),
                 loading = uiState.isLoading,
-                enabled = !uiState.isGoogleLoading,
+                enabled = !uiState.isGoogleLoading && !uiState.isOffline,
                 onClick = {
                     focusManager.clearFocus()
                     onEventDispatcher(SignInContract.SignInEvent.SignInClicked)
@@ -149,7 +151,7 @@ private fun SignInContent(
                 text = stringResource(if (uiState.isGoogleLoading) R.string.google_connecting else R.string.action_continue_google),
                 leadingIcon = R.drawable.ic_google,
                 tintIcon = false,
-                enabled = !uiState.isBusy,
+                enabled = !uiState.isBusy && !uiState.isOffline,
                 onClick = { onEventDispatcher(SignInContract.SignInEvent.GoogleClicked) }
             )
             Spacer(Modifier.height(4.dp))

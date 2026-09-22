@@ -4,6 +4,7 @@ import com.visionsystems.waterreminder.domain.module.ProfileOverviewUiData
 import com.visionsystems.waterreminder.domain.module.WaterUnit
 import com.visionsystems.waterreminder.domain.repository.AuthRepository
 import com.visionsystems.waterreminder.domain.repository.GoalRepository
+import com.visionsystems.waterreminder.domain.repository.NetworkRepository
 import com.visionsystems.waterreminder.domain.repository.ProfileRepository
 import com.visionsystems.waterreminder.domain.repository.SettingsRepository
 import com.visionsystems.waterreminder.domain.repository.WidgetRepository
@@ -12,12 +13,15 @@ import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
 
 class ProfileUseCaseImpl @Inject constructor(
+    private val networkRepository: NetworkRepository,
     private val profileRepository: ProfileRepository,
     private val goalRepository: GoalRepository,
     private val settingsRepository: SettingsRepository,
     private val authRepository: AuthRepository,
     private val widgetRepository: WidgetRepository
 ) : ProfileUseCase {
+
+    override fun observeOnline(): Flow<Boolean> = networkRepository.isOnline
 
     override fun observeProfile(): Flow<ProfileOverviewUiData> =
         combine(

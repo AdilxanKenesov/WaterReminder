@@ -1,6 +1,5 @@
 package com.visionsystems.waterreminder.presenter.ui.util
 
-import android.annotation.SuppressLint
 import android.content.Context
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
@@ -18,11 +17,8 @@ sealed interface GoogleSignInResult {
     data class Failure(val message: UiText) : GoogleSignInResult
 }
 
-@SuppressLint("DiscouragedApi")
 suspend fun Context.requestGoogleIdToken(): GoogleSignInResult {
-    val clientIdRes = resources.getIdentifier("default_web_client_id", "string", packageName)
-    if (clientIdRes == 0) return GoogleSignInResult.Failure(UiText.Res(R.string.error_google_not_configured))
-    val option = GetSignInWithGoogleOption.Builder(getString(clientIdRes)).build()
+    val option = GetSignInWithGoogleOption.Builder(getString(R.string.default_web_client_id)).build()
     val request = GetCredentialRequest.Builder().addCredentialOption(option).build()
     return try {
         val credential = CredentialManager.create(this).getCredential(this, request).credential

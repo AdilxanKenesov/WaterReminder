@@ -27,6 +27,7 @@ import com.visionsystems.waterreminder.presenter.ui.components.HydroBackButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroPrimaryButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroSecondaryButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroTextField
+import com.visionsystems.waterreminder.presenter.ui.components.OfflineBanner
 import com.visionsystems.waterreminder.presenter.ui.components.OrDivider
 import com.visionsystems.waterreminder.presenter.ui.components.ScreenTitle
 import com.visionsystems.waterreminder.presenter.ui.theme.HydroBackground
@@ -83,6 +84,7 @@ private fun SignUpContent(
         ) {
             HydroBackButton(onClick = { onEventDispatcher(SignUpContract.SignUpEvent.BackClicked) })
             ScreenTitle(title = stringResource(R.string.signup_title))
+            OfflineBanner(visible = uiState.isOffline)
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 HydroTextField(
                     label = stringResource(R.string.field_name),
@@ -117,7 +119,7 @@ private fun SignUpContent(
             HydroPrimaryButton(
                 text = stringResource(R.string.action_create_account),
                 loading = uiState.isLoading,
-                enabled = !uiState.isGoogleLoading,
+                enabled = !uiState.isGoogleLoading && !uiState.isOffline,
                 onClick = {
                     focusManager.clearFocus()
                     onEventDispatcher(SignUpContract.SignUpEvent.CreateClicked)
@@ -128,7 +130,7 @@ private fun SignUpContent(
                 text = stringResource(if (uiState.isGoogleLoading) R.string.google_connecting else R.string.action_continue_google),
                 leadingIcon = R.drawable.ic_google,
                 tintIcon = false,
-                enabled = !uiState.isBusy,
+                enabled = !uiState.isBusy && !uiState.isOffline,
                 onClick = { onEventDispatcher(SignUpContract.SignUpEvent.GoogleClicked) }
             )
         }

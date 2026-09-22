@@ -6,6 +6,7 @@ import com.visionsystems.waterreminder.data.repository_impl.CupRepositoryImpl
 import com.visionsystems.waterreminder.data.repository_impl.CurrentUserProviderImpl
 import com.visionsystems.waterreminder.data.repository_impl.DrinkRepositoryImpl
 import com.visionsystems.waterreminder.data.repository_impl.GoalRepositoryImpl
+import com.visionsystems.waterreminder.data.repository_impl.NetworkRepositoryImpl
 import com.visionsystems.waterreminder.data.repository_impl.NotificationRepositoryImpl
 import com.visionsystems.waterreminder.data.repository_impl.ProfileRepositoryImpl
 import com.visionsystems.waterreminder.data.repository_impl.ReminderRepositoryImpl
@@ -20,6 +21,7 @@ import com.visionsystems.waterreminder.domain.repository.CupRepository
 import com.visionsystems.waterreminder.domain.repository.CurrentUserProvider
 import com.visionsystems.waterreminder.domain.repository.DrinkRepository
 import com.visionsystems.waterreminder.domain.repository.GoalRepository
+import com.visionsystems.waterreminder.domain.repository.NetworkRepository
 import com.visionsystems.waterreminder.domain.repository.NotificationRepository
 import com.visionsystems.waterreminder.domain.repository.ProfileRepository
 import com.visionsystems.waterreminder.domain.repository.ReminderRepository
@@ -85,6 +87,10 @@ interface RepositoryModule {
     @Binds
     @Singleton
     fun bindReminderScheduler(impl: ReminderSchedulerImpl): ReminderScheduler
+
+    @Binds
+    @Singleton
+    fun bindNetworkRepository(impl: NetworkRepositoryImpl): NetworkRepository
 
     @Binds
     @Singleton

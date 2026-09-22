@@ -35,7 +35,8 @@ interface ProfileContract {
         val unit: WaterUnit = WaterUnit.ML,
         val showLanguageDialog: Boolean = false,
         val showDeleteDialog: Boolean = false,
-        val isDeleting: Boolean = false
+        val isDeleting: Boolean = false,
+        val isOffline: Boolean = false
     )
 
     sealed interface SideEffect {

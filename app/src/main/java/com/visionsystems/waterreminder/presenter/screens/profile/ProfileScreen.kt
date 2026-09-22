@@ -127,6 +127,7 @@ private fun ProfileContent(
             HydroTextButton(
                 text = stringResource(R.string.action_delete_account),
                 color = HydroDanger,
+                enabled = !uiState.isOffline,
                 onClick = { onEventDispatcher(ProfileContract.ProfileEvent.DeleteClicked) }
             )
         }

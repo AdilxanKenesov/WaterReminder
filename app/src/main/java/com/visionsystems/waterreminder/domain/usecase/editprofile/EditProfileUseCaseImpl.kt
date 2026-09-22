@@ -6,6 +6,8 @@ import com.visionsystems.waterreminder.domain.module.Gender
 import com.visionsystems.waterreminder.domain.repository.AuthRepository
 import com.visionsystems.waterreminder.domain.repository.ProfileRepository
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 
 class EditProfileUseCaseImpl @Inject constructor(
@@ -24,10 +26,12 @@ class EditProfileUseCaseImpl @Inject constructor(
 
     override suspend fun setPhoto(sourceUri: String): Result<String?> =
         try {
-            Result.success(profileRepository.savePhoto(sourceUri))
+            Result.success(withTimeout(PHOTO_TIMEOUT_MS) { profileRepository.savePhoto(sourceUri) })
+        } catch (e: TimeoutCancellationException) {
+            Result.failure(e)
         } catch (e: CancellationException) {
             throw e
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             Result.failure(e)
         }
 
@@ -47,5 +51,9 @@ class EditProfileUseCaseImpl @Inject constructor(
                 activityLevel = activityLevel
             )
         )
+    }
+
+    private companion object {
+        const val PHOTO_TIMEOUT_MS = 20_000L
     }
 }

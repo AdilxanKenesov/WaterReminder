@@ -18,6 +18,12 @@ class SignInViewModel @Inject constructor(
 
     override val container = orbitContainer<SignInContract.SignInUiState, SignInContract.SideEffect>(SignInContract.SignInUiState())
 
+    init {
+        intent {
+            signInUseCase.observeOnline().collect { online -> reduce { state.copy(isOffline = !online) } }
+        }
+    }
+
     override fun onEventDispatcher(event: SignInContract.SignInEvent) {
         when (event) {
             is SignInContract.SignInEvent.EmailChanged -> intent {
@@ -31,6 +37,10 @@ class SignInViewModel @Inject constructor(
             SignInContract.SignInEvent.SignInClicked -> signIn()
 
             SignInContract.SignInEvent.ForgotPasswordClicked -> intent {
+                if (state.isOffline) {
+                    postSideEffect(SignInContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+                    return@intent
+                }
                 if (!state.email.isValidEmail()) {
                     reduce { state.copy(emailError = R.string.error_email_for_reset) }
                     return@intent
@@ -42,6 +52,10 @@ class SignInViewModel @Inject constructor(
 
             SignInContract.SignInEvent.GoogleClicked -> intent {
                 if (state.isBusy) return@intent
+                if (state.isOffline) {
+                    postSideEffect(SignInContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+                    return@intent
+                }
                 reduce { state.copy(isGoogleLoading = true) }
                 postSideEffect(SignInContract.SideEffect.LaunchGoogleSignIn)
             }
@@ -64,6 +78,10 @@ class SignInViewModel @Inject constructor(
 
     private fun signIn() = intent {
         if (state.isBusy) return@intent
+        if (state.isOffline) {
+            postSideEffect(SignInContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+            return@intent
+        }
         val emailError = if (state.email.isValidEmail()) null else R.string.error_email_invalid
         val passwordError = if (state.password.isEmpty()) R.string.error_password_empty else null
         if (emailError != null || passwordError != null) {

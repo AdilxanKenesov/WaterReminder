@@ -1,8 +1,10 @@
 package com.visionsystems.waterreminder.presenter.screens.profile
 
 import androidx.lifecycle.ViewModel
+import com.visionsystems.waterreminder.R
 import com.visionsystems.waterreminder.domain.module.WaterUnit
 import com.visionsystems.waterreminder.domain.usecase.profile.ProfileUseCase
+import com.visionsystems.waterreminder.presenter.ui.util.UiText
 import com.visionsystems.waterreminder.presenter.ui.util.toUiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.viewmodel.orbitContainer
@@ -33,6 +35,12 @@ class ProfileViewModel @Inject constructor(
                     )
                 }
             }
+        }
+    }
+
+    init {
+        intent {
+            profileUseCase.observeOnline().collect { online -> reduce { state.copy(isOffline = !online) } }
         }
     }
 
@@ -69,6 +77,11 @@ class ProfileViewModel @Inject constructor(
 
             ProfileContract.ProfileEvent.DeleteConfirmed -> intent {
                 if (state.isDeleting) return@intent
+                if (state.isOffline) {
+                    reduce { state.copy(showDeleteDialog = false) }
+                    postSideEffect(ProfileContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+                    return@intent
+                }
                 reduce { state.copy(isDeleting = true) }
                 profileUseCase.deleteAccount()
                     .onSuccess { direction.openSignIn() }
