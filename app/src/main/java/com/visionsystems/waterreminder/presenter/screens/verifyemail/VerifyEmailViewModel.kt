@@ -19,6 +19,12 @@ class VerifyEmailViewModel @Inject constructor(
         VerifyEmailContract.VerifyEmailUiState(email = verifyEmailUseCase.currentEmail())
     )
 
+    init {
+        intent {
+            verifyEmailUseCase.observeOnline().collect { online -> reduce { state.copy(isOffline = !online) } }
+        }
+    }
+
     override fun onEventDispatcher(event: VerifyEmailContract.VerifyEmailEvent) {
         when (event) {
             VerifyEmailContract.VerifyEmailEvent.VerifiedClicked -> check(silent = false)
@@ -31,6 +37,10 @@ class VerifyEmailViewModel @Inject constructor(
 
             VerifyEmailContract.VerifyEmailEvent.ResendClicked -> intent {
                 if (state.isResending) return@intent
+                if (state.isOffline) {
+                    postSideEffect(VerifyEmailContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+                    return@intent
+                }
                 reduce { state.copy(isResending = true) }
                 verifyEmailUseCase.resendLink()
                     .onSuccess { postSideEffect(VerifyEmailContract.SideEffect.ShowMessage(UiText.Res(R.string.link_sent_again))) }
@@ -47,6 +57,10 @@ class VerifyEmailViewModel @Inject constructor(
 
     private fun check(silent: Boolean) = intent {
         if (state.isChecking) return@intent
+        if (state.isOffline) {
+            if (!silent) postSideEffect(VerifyEmailContract.SideEffect.ShowMessage(UiText.Res(R.string.error_network)))
+            return@intent
+        }
         reduce { state.copy(isChecking = !silent) }
         verifyEmailUseCase.checkVerified()
             .onSuccess { start ->

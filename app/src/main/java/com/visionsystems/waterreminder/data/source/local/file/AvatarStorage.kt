@@ -9,6 +9,7 @@ import android.os.Build
 import androidx.core.net.toUri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runInterruptible
 import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
@@ -22,7 +23,7 @@ class AvatarStorage @Inject constructor(
 
     private val directory: File get() = File(context.filesDir, DIRECTORY).apply { mkdirs() }
 
-    suspend fun save(uid: String, sourceUri: String): String = withContext(Dispatchers.IO) {
+    suspend fun save(uid: String, sourceUri: String): String = runInterruptible(Dispatchers.IO) {
         val bitmap = decode(sourceUri.toUri())
         val file = File(directory, "${uid.safeName()}_${System.currentTimeMillis()}.jpg")
         file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, it) }

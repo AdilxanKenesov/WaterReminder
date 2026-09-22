@@ -30,7 +30,8 @@ interface SignUpContract {
         @param:StringRes val emailError: Int? = null,
         val passwordError: Boolean = false,
         val isLoading: Boolean = false,
-        val isGoogleLoading: Boolean = false
+        val isGoogleLoading: Boolean = false,
+        val isOffline: Boolean = false
     ) {
         val isBusy: Boolean get() = isLoading || isGoogleLoading
     }

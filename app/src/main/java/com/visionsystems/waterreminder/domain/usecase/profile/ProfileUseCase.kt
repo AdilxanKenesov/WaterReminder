@@ -5,6 +5,7 @@ import com.visionsystems.waterreminder.domain.module.WaterUnit
 import kotlinx.coroutines.flow.Flow
 
 interface ProfileUseCase {
+    fun observeOnline(): Flow<Boolean>
     fun observeProfile(): Flow<ProfileOverviewUiData>
     fun setUnit(unit: WaterUnit)
     fun setLanguage(tag: String)

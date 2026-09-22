@@ -28,7 +28,8 @@ interface SignInContract {
         @param:StringRes val emailError: Int? = null,
         @param:StringRes val passwordError: Int? = null,
         val isLoading: Boolean = false,
-        val isGoogleLoading: Boolean = false
+        val isGoogleLoading: Boolean = false,
+        val isOffline: Boolean = false
     ) {
         val isBusy: Boolean get() = isLoading || isGoogleLoading
     }

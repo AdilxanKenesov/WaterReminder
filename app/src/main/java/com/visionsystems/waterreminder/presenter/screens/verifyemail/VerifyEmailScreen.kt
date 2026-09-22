@@ -39,6 +39,7 @@ import com.visionsystems.waterreminder.presenter.ui.components.HydroBackButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroPrimaryButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroSecondaryButton
 import com.visionsystems.waterreminder.presenter.ui.components.HydroTextButton
+import com.visionsystems.waterreminder.presenter.ui.components.OfflineBanner
 import com.visionsystems.waterreminder.presenter.ui.theme.HydroBackground
 import com.visionsystems.waterreminder.presenter.ui.theme.HydroCoral
 import com.visionsystems.waterreminder.presenter.ui.theme.HydroInk
@@ -99,6 +100,7 @@ private fun VerifyEmailContent(
             verticalArrangement = Arrangement.spacedBy(22.dp)
         ) {
             HydroBackButton(onClick = { onEventDispatcher(VerifyEmailContract.VerifyEmailEvent.BackClicked) })
+            OfflineBanner(visible = uiState.isOffline)
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -143,12 +145,12 @@ private fun VerifyEmailContent(
                 )
                 HydroSecondaryButton(
                     text = stringResource(R.string.action_verified),
-                    enabled = !uiState.isChecking,
+                    enabled = !uiState.isChecking && !uiState.isOffline,
                     onClick = { onEventDispatcher(VerifyEmailContract.VerifyEmailEvent.VerifiedClicked) }
                 )
                 HydroTextButton(
                     text = stringResource(if (uiState.isResending) R.string.sending else R.string.action_resend),
-                    enabled = !uiState.isResending,
+                    enabled = !uiState.isResending && !uiState.isOffline,
                     onClick = { onEventDispatcher(VerifyEmailContract.VerifyEmailEvent.ResendClicked) },
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )

@@ -21,7 +21,8 @@ interface VerifyEmailContract {
     data class VerifyEmailUiState(
         val email: String = "",
         val isChecking: Boolean = false,
-        val isResending: Boolean = false
+        val isResending: Boolean = false,
+        val isOffline: Boolean = false
     )
 
     sealed interface SideEffect {
